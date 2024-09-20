@@ -1,5 +1,5 @@
 import dbConnect from "../../../../db/connect";
-import Place from "../../../../db/models/Place.js";
+import Place from "../../../../db/models/Places";
 
 //import { db_comments } from "../../../../lib/db_comments";
 
@@ -21,7 +21,7 @@ export default async function handler(request, response) {
   );*/
 
     if (!place) {
-      return response.status(404).json({ status: "Not found" });
+      return response.status(404).json({ status: "Not found" }); //if there is no place for corresponding id
     }
 
     return response.status(200).json(place);
