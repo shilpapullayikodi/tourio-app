@@ -7,16 +7,19 @@ import { StyledLink } from "../components/StyledLink.js";
 const List = styled.ul`
   list-style: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* Changed to row */
   align-items: center;
   gap: 1rem;
   padding-left: 0;
+  flex-wrap: wrap;
 `;
 
 const ListItem = styled.li`
   position: relative;
-  width: 100%;
+  width: auto;
+  max-width: 200px;
 `;
+
 const FixedLink = styled(StyledLink)`
   position: fixed;
   bottom: 50px;
