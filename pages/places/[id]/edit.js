@@ -8,10 +8,23 @@ export default function EditPage() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
-  const { data: place, isLoading, error } = useSWR(`/api/places/${id}`);
+  const {
+    data: { place, comments } = {},
+    isLoading,
+    error,
+  } = useSWR(`/api/places/${id}`);
 
   async function editPlace(place) {
-    console.log("Place edited (but not really...)");
+    var { id } = router.query;
+    const response = await fetch(`/api/places/${id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(place),
+    });
+    if (response.ok) {
+      await response.json();
+      router.push(`/places/${id}`);
+    }
   }
 
   if (!isReady || isLoading || error) return <h2>Loading...</h2>;
@@ -22,7 +35,7 @@ export default function EditPage() {
       <Link href={`/places/${id}`} passHref legacyBehavior>
         <StyledLink justifySelf="start">back</StyledLink>
       </Link>
-      <Form onSubmit={editPlace} formName={'edit-place'} defaultData={place} />
+      <Form onSubmit={editPlace} formName={"edit-place"} defaultData={place} />
     </>
   );
 }

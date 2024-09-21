@@ -1,5 +1,5 @@
 import dbConnect from "../../../db/connect";
-import Place from "../../../db/models/Places";
+import Place from "../../../db/models/Place";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -11,7 +11,9 @@ export default async function handler(request, response) {
   if (request.method === "POST") {
     // create a post api route
     try {
-      const placeData = request.body;
+      const placeData = request.body; // data from form
+
+      console.log(placeData);
 
       await Place.create(placeData);
 
