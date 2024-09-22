@@ -30,11 +30,11 @@ const StyledLocationLink = styled(StyledLink)`
 `;
 
 export default function DetailsPage() {
-  const router = useRouter();
+  const router = useRouter(); //access the route parameters (like id)
   const { isReady } = router;
-  const { id } = router.query;
+  const { id } = router.query; //This extracts the 'id' parameter from the URL (query string), which is used to fetch the specific place's data.
   const {
-    data: { place, comments } = {},
+    data: { place, comments } = {}, //if the data object is not yet available, the place and comments values will be set to undefined
     isLoading,
     error,
   } = useSWR(`/api/places/${id}`);

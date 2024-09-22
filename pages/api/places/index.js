@@ -13,8 +13,6 @@ export default async function handler(request, response) {
     try {
       const placeData = request.body; // data from form
 
-      console.log(placeData);
-
       await Place.create(placeData);
 
       response.status(201).json({ status: "Place created." });
