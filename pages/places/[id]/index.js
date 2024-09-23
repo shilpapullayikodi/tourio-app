@@ -10,6 +10,11 @@ import Comments from "../../../components/Comments.js";
 const ImageContainer = styled.div`
   position: relative;
   height: 15rem;
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 3px solid black;
+  border-radius: 0.8rem;
 `;
 
 const ButtonContainer = styled.section`
@@ -26,7 +31,7 @@ const ButtonContainer = styled.section`
 const StyledLocationLink = styled(StyledLink)`
   text-align: center;
   background-color: white;
-  border: 3px solid lightsalmon;
+  border: 3px solid #2f5233;
 `;
 
 export default function DetailsPage() {
