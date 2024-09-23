@@ -5,7 +5,7 @@ import Place from "../../../../db/models/Place";
 
 export default async function handler(request, response) {
   await dbConnect();
-  const { id } = request.query;
+  const { id } = request.query; //extracts the id from the query parameters of the incoming request
 
   if (request.method === "GET") {
     const place = await Place.findById(id); //use singular

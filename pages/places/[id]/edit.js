@@ -12,11 +12,12 @@ export default function EditPage() {
     data: { place, comments } = {},
     isLoading,
     error,
-  } = useSWR(`/api/places/${id}`);
+  } = useSWR(`/api/places/${id}`); //read request (GET)
 
   async function editPlace(place) {
     var { id } = router.query;
     const response = await fetch(`/api/places/${id}`, {
+      //update request(PUT)
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(place),

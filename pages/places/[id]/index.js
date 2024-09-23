@@ -47,8 +47,12 @@ export default function DetailsPage() {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
+      alert("Place has been successfully deleted.");
       await response.json();
       router.push("/");
+    } else {
+      const errorText = await response.text();
+      alert(`Error: ${errorText || "Not able to delete"}`);
     }
   }
 
