@@ -16,8 +16,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   position: relative;
-  width: auto;
-  max-width: 200px;
+  width: 30%;
 `;
 
 const FixedLink = styled(StyledLink)`

@@ -10,7 +10,7 @@ const Article = styled.article`
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 10rem;
+  height: 12rem;
 `;
 
 const Figure = styled.figure`
