@@ -3,9 +3,9 @@ import styled from "styled-components";
 import { StyledImage } from "./StyledImage.js";
 
 const Article = styled.article`
-  border: 3px solid black;
-  border-radius: 0.8rem;
+  border: 1px solid lightgrey;
   padding: 0.5rem;
+  box-shadow: 10px 5px 5px gainsboro;
 `;
 
 const ImageContainer = styled.div`
